@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from appium import webdriver
+import time
 
 # app连接配置信息
 conf = {
@@ -13,7 +14,7 @@ conf = {
     "resetKeyboard": "true"
 }
 # 通过remote方法连接appium方法连接
-driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub",conf)
+driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", conf)
 
 # 设置隐式等待10s
 
@@ -44,6 +45,6 @@ ele.click()
 ele = driver.find_element_by_id('android:id/button1')
 ele.click()
 
-
+# time.sleep(4)
 
 driver.quit()
