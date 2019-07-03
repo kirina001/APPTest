@@ -4,6 +4,7 @@ import requests, json
 
 class HTTP:
 
+
     def __init__(self):  # 构造函数
         self.session = requests.session()  # 保存cookie信息
         self.jsonres = {}  # 存放json返回的数据
@@ -11,6 +12,16 @@ class HTTP:
         self.url = ''  # 全局url参数
 
     def post(self, path, data=None):  # post实例方法
+        '''
+        post方法
+        :param path: url路径
+        :param data: 传入数据
+        :return: null
+        '''
+        if not (path.startswith('http') or path.startswith('https')):
+            path = self.url +'/'+path
+
+
         if data is None or data == '':
             result = self.session.post(path)
         else:
@@ -58,3 +69,5 @@ class HTTP:
             self.url = url
         else:
             print('url地址不合法')
+
+        print(self.url)
